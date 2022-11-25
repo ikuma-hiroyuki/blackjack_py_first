@@ -93,6 +93,11 @@ if __name__ == '__main__':
             dealer.replay()
             player.replay()
 
+    if player.win_count > dealer.win_count:
+        print(get_ascii_art("win.txt"))
+    elif player.win_count < dealer.win_count:
+        print(get_ascii_art("lose.txt"))
+    else:
+        print(get_ascii_art("draw.txt"))
     draw = Player.game_count - player.win_count - dealer.win_count
-    print(get_ascii_art("win.txt") if player.win_count > dealer.win_count else get_ascii_art("lose.txt"))
     print(f'{player.win_count} 勝 : {dealer.win_count} 敗 : {draw}分け')
