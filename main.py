@@ -57,19 +57,19 @@ if __name__ == '__main__':
         else:
             # プレイヤーのターン
             while input('\nもう一枚カードを引きますか？ [y]\n').lower() == 'y':
-                os.system('clear')
+                os.system('cls' if os.name == 'nt' else 'clear')
                 player.hand.append(deck.pop())
                 display_hand()
                 if player.score > 21:
                     break
 
-            if player.score > 21 or player.score < dealer.score:
+            if player.score > 21:
                 print(get_ascii_art("lose.txt"))
                 dealer.win_count += 1
             else:
                 # ディーラーのターン
                 while dealer.score < player.score:
-                    os.system('clear')
+                    os.system('cls' if os.name == 'nt' else 'clear')
                     print("ディーラーのターンです")
                     dealer.hand.append(deck.pop())
                     display_hand()
@@ -89,7 +89,7 @@ if __name__ == '__main__':
 
         is_play = input('\nもう一度勝負しますか？ [y]\n').lower() == 'y'
         if is_play:
-            os.system('clear')
+            os.system('cls' if os.name == 'nt' else 'clear')
             dealer.replay()
             player.replay()
 
