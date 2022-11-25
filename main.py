@@ -56,7 +56,7 @@ if __name__ == '__main__':
             dealer.win_count += 1
         else:
             # プレイヤーのターン
-            while input('\nもう一枚カードを引きますか？ [y]\n').lower() == 'y':
+            while input('\nもう一枚カードを引く場合は[y]を入力してください。\n').lower() == 'y':
                 os.system('cls' if os.name == 'nt' else 'clear')
                 player.hand.append(deck.pop())
                 display_hand()
@@ -87,11 +87,12 @@ if __name__ == '__main__':
 
         display_hand(show_deler_hand=True)
 
-        is_play = input('\nもう一度勝負しますか？ [y]\n').lower() == 'y'
+        is_play = input('\nもう一度勝負する場合は[y]を入力してください。\n').lower() == 'y'
         if is_play:
             os.system('cls' if os.name == 'nt' else 'clear')
             dealer.replay()
             player.replay()
 
     draw = Player.game_count - player.win_count - dealer.win_count
+    print(get_ascii_art("win.txt") if player.win_count > dealer.win_count else get_ascii_art("lose.txt"))
     print(f'{player.win_count} 勝 : {dealer.win_count} 敗 : {draw}分け')
