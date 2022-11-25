@@ -34,7 +34,7 @@ class Player:
     def display_hand(self, show_dealer_hand=False):
         """手札を表示"""
 
-        rows = ['', '', '', '', '']
+        rows = ['', '', '', '']
 
         def front_side():
             rows[1] += f'|{rank.ljust(2)} | '
