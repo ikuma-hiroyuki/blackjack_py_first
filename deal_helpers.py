@@ -57,6 +57,15 @@ def set_dealer_final_card_list(dealer_card_list, card_list):
 
     return dealer_card_list, dealer_score
 
+def hit(card_list):
+    """
+    カードを1枚引く
+    :param card_list: カードのリスト
+    :return: カード
+    """
+    card = random.choice(card_list)
+    card_list.remove(card)
+    return card
 
 def get_dealer_current_score(score, ace_count):
     """
@@ -69,3 +78,24 @@ def get_dealer_current_score(score, ace_count):
         score -= 10
         ace_count -= 1
     return score
+
+
+def get_deal_result(player_score, dealer_score):
+    """
+    プレイヤーとディーラーのスコアから勝敗を判定する
+    :param player_score: プレイヤーのスコア
+    :param dealer_score: ディーラーのスコア
+    :return: 勝敗を示す列挙型
+    """
+    if player_score > Score.dealer_max:
+        return DealResult.lose
+    elif dealer_score > Score.dealer_max:
+        return DealResult.win
+    elif player_score > dealer_score:
+        return DealResult.win
+    elif player_score < dealer_score:
+        return DealResult.lose
+    elif player_score > Score.dealer_max:
+        return DealResult.lose
+    else:
+        return DealResult.draw
