@@ -68,9 +68,9 @@ def show_all_cards(card_list):
     for card in card_list:
         line1, line2, line3, line4 = card.get_card_image().splitlines()
         line1_list.append(line1.ljust(5, " "))
-        line2_list.append(line1.ljust(5, " "))
-        line3_list.append(line1.ljust(5, " "))
-        line4_list.append(line1.ljust(5, " "))
+        line2_list.append(line2.ljust(5, " "))
+        line3_list.append(line3.ljust(5, " "))
+        line4_list.append(line4.ljust(5, " "))
 
     print("  ".join(line1_list))
     print("  ".join(line2_list))
