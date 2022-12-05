@@ -1,5 +1,5 @@
 from cards import create_card_list, show_all_cards
-from deal_helpers import hit, get_dealer_current_score, get_default_dealer_cards, set_dealer_final_card_list
+from deal_helpers import get_default_dealer_cards, get_score, hit, set_dealer_final_card_list
 
 card_list = create_card_list()
 
@@ -15,8 +15,7 @@ class Hand:
     @property
     def score(self):
         """スコアを返す"""
-        ace_count = len(list(filter(lambda x: x.is_ace, self.cards)))  # A の枚数
-        return get_dealer_current_score(self._score, ace_count)
+        return get_score(self.cards)
 
     def _default(self):
         """最初の2枚のカードを決定する"""
