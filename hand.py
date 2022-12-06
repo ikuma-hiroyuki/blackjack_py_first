@@ -24,6 +24,12 @@ class Hand:
     def hit(self):
         """カードを1枚引く"""
         self.cards.append(hit(card_list))
+        # バースとしたら終了
+        if self.score > 21:
+            self.show_hand()
+            print('バーストしました。負けです。')
+            print(f'あなたのスコア: {self.score}')
+            exit()
 
     def final(self):
         """最終的なカードのリストとスコアを決定する"""

@@ -1,11 +1,16 @@
 from deal_helpers import DealResult, get_deal_result
 from hand import Hand
 
-
 # プレイヤーのターン
 player = Hand()
-player.hit()
-# player.final()
+while True:
+    player.show_hand()
+    print(f"あなたのスコア    : {player.score}点")
+    if input('Hit? (y/n)') == 'y':
+        player.hit()
+    else:
+        break
+
 player.show_hand()
 print(f"あなたのスコア    : {player.score}点")
 
