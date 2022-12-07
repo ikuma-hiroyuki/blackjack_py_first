@@ -1,12 +1,7 @@
-from pathlib import Path
+from get_aa import get_art
 
-ART_DIR = Path(__file__).absolute().parent / "ascii_art"
-
-with Path.open(ART_DIR / 'card_head.txt', "r", encoding="utf-8") as f:
-    card_open = f.read()
-
-with Path.open(ART_DIR / 'card_tail.txt', "r", encoding="utf-8") as f:
-    card_close = f.read()
+card_open = get_art('card_head.txt')
+card_close = get_art('card_tail.txt')
 
 
 class Card:
